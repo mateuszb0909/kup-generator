@@ -1,0 +1,3 @@
+([('MyStreamlitApp',
+   '/Users/m.byrtus/Projects/Work/KUP Generator/dist/MyStreamlitApp',
+   'EXECUTABLE')],)

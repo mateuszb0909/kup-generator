@@ -115,12 +115,12 @@ def generuj_pdf(projekty, wspolny_link, start_okresu, koniec_okresu, signature_b
     story = []
 
     styles = getSampleStyleSheet()
-    style_normal = ParagraphStyle(name='Normal', fontName=FONT_NAME, fontSize=10, leading=14)
+    style_normal = ParagraphStyle(name='Normal', fontName=FONT_NAME, fontSize=8, leading=10)
     style_lp = ParagraphStyle(name='LpStyle', parent=style_normal, alignment=TA_CENTER)
-    style_title = ParagraphStyle(name='Title', fontName=FONT_BOLD, fontSize=14, alignment=TA_CENTER, spaceAfter=1*cm)
-    style_header = ParagraphStyle(name='Header', fontName=FONT_BOLD, fontSize=10, alignment=TA_CENTER)
-    style_signature_desc = ParagraphStyle(name='SignatureDesc', fontName=FONT_BOLD, fontSize=10, alignment=TA_LEFT)
-    style_helper = ParagraphStyle(name='Helper', fontName=FONT_NAME, fontSize=8, textColor=colors.grey)
+    style_title = ParagraphStyle(name='Title', fontName=FONT_BOLD, fontSize=10, alignment=TA_CENTER, spaceAfter=1*cm)
+    style_header = ParagraphStyle(name='Header', fontName=FONT_BOLD, fontSize=8, alignment=TA_CENTER)
+    style_signature_desc = ParagraphStyle(name='SignatureDesc', fontName=FONT_BOLD, fontSize=8, alignment=TA_LEFT)
+    style_helper = ParagraphStyle(name='Helper', fontName=FONT_NAME, fontSize=5, leading=7, textColor=colors.grey)
     style_justify = ParagraphStyle(name='Justify', parent=style_normal, alignment=TA_JUSTIFY)
 
     story.append(Paragraph("Oświadczenie Pracownika raportującego utwory powstałe w danym okresie rozliczeniowym", style_title))
@@ -141,7 +141,7 @@ def generuj_pdf(projekty, wspolny_link, start_okresu, koniec_okresu, signature_b
     for i in range(len(projekty) + 1, 10):
         dane_tabeli.append([Paragraph(str(i), style_lp), '', '', ''])
     
-    tabela = Table(dane_tabeli, colWidths=[1.5*cm, 5*cm, 6*cm, 4*cm])
+    tabela = Table(dane_tabeli, colWidths=[1.5*cm, 5*cm, 6*cm, 3*cm])
     tabela.setStyle(TableStyle([('BACKGROUND', (0,0), (-1,0), colors.lightgrey), ('GRID', (0,0), (-1,-1), 1, colors.black), ('VALIGN', (0,0), (-1,-1), 'MIDDLE')]))
     story.append(tabela)
     story.append(Spacer(1, 1*cm))
